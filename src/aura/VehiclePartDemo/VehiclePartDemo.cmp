@@ -1,0 +1,19 @@
+<aura:component >
+
+    <aura:attribute name="componentName" type="String"/>
+    <aura:attribute name="instructions" type="String"/>
+            
+    <div class="alert alert-success">
+        <div class="row">
+            <div class="col-sm-6">
+                <strong>{!v.componentName}</strong>
+            </div>
+            <div class="col-sm-6 text-right">
+                <p>{!v.instructions}</p>
+            </div>
+        </div>
+        <div class="well">{!v.body}</div>
+        <strong>Debug Info</strong>
+    </div>
+                                            
+</aura:component>

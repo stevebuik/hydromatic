@@ -1,0 +1,5 @@
+<aura:component controller="FileManagerController"                 
+                extends="c:FileManager">
+    <aura:attribute name="object" type="String"/>
+    <aura:set attribute="fileSingular" value="{!v.object}"/>
+</aura:component>

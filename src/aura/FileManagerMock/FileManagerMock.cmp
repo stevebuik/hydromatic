@@ -1,0 +1,3 @@
+<aura:component extends="c:FileManager">
+    <aura:set attribute="fileSingular" value="Mock File"/>
+</aura:component>
