@@ -20,6 +20,17 @@
         unpackaged="../src/package.xml"/>
     </target>
 
+    <target name="push">
+      <echo message="User: ${env.sfdc_username}" />
+      <sf:deploy 
+        username="${env.sfdc_username}" 
+        password="${env.sfdc_pass_and_token}" 
+        serverurl="${env.sfdc_server_url}" 
+        maxPoll="200"
+        deployRoot="../src" 
+        logType="Debugonly"/>
+    </target>
+    
     <target name="deployAndTest">
       <echo message="User: ${env.sfdc_username}" />
       <sf:deploy 
