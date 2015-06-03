@@ -1,0 +1,19 @@
+<aura:component abstract="true" 
+                extensible="true">
+    
+    <ltng:require scripts="/resource/jquery"/>
+    
+	<aura:attribute name="fileSingular" type="String"/>       
+	<aura:attribute name="chooseItemEnabled" type="Boolean" default="false"/>       
+	<aura:attribute name="defaultItem" type="String" />       
+	<aura:attribute name="fields" type="String" />       
+        
+	<aura:registerEvent name="fileSelectedEvent" type="c:selectionEvent"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+        
+    <ui:inputSelect aura:id="picker" 
+                    label="{!v.fileSingular + ':'}"
+                    change="{!c.handleSelection}"/>
+    	
+</aura:component>
