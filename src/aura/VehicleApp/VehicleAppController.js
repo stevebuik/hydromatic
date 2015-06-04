@@ -5,10 +5,11 @@
         }                    
         // TODO fire jquery ready event
 	},
+
+	showEventsFromApp : function(component, event, helper) {
+        var demoComponent = component.find(event.getParams().context);
+        delete event.getParams().context;
+        demoComponent.set("v.debugData", JSON.stringify(event.getParams()));
+	}
     
-	showEvents : function(component, event, helper) {
-		console.log(event.getSource().getElement());
-        console.log(event);
-        
-	}    
 })

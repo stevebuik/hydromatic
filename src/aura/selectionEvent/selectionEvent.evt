@@ -1,3 +1,4 @@
 <aura:event type="COMPONENT">
 	<aura:attribute name="selection" type="Object"/>
+	<aura:attribute name="context" type="Object"/>
 </aura:event>

@@ -2,6 +2,7 @@
 
     <aura:attribute name="componentName" type="String"/>
     <aura:attribute name="instructions" type="String"/>
+    <aura:attribute name="debugData" type="String"/>
             
     <div class="alert alert-success">
         <div class="row">
@@ -14,6 +15,7 @@
         </div>
         <div class="well">{!v.body}</div>
         <strong>Debug Info</strong>
+        <p>{!v.debugData}</p>
     </div>
                                             
 </aura:component>

@@ -23,7 +23,8 @@
     	hlp.getFile(component.getConcreteComponent(),
             function(file) {
                 var componentEvent = component.getEvent("fileSelectedEvent");
-                componentEvent.setParams({selection: selection});
+                componentEvent.setParams({selection: file,                                           
+                                          context: component.get("v.eventContext")});
                 componentEvent.fire();                
             }, 
 			selection);
