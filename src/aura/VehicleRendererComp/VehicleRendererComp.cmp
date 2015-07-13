@@ -1,0 +1,7 @@
+<aura:component controller="VehicleController">
+	
+    <aura:registerEvent name="renderEvent" type="c:VehicleRenderEvent"/>
+    <aura:handler name="renderEvent" action="{!c.renderVeicle}" />
+    
+    <div id="diagramContainer"></div>
+</aura:component>

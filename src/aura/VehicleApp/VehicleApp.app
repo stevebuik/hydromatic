@@ -1,7 +1,9 @@
 <aura:application >
     
     <ltng:require styles="/resource/sfbootstrapcss"
-			      scripts="/resource/jquery"
+			      scripts="/resource/jquery,
+                           /resource/VizJS,
+                           /resource/ERDRendererJS"
                   afterScriptsLoaded="c.init"
                   />
     
@@ -42,6 +44,12 @@
                 </c:FileManagerSObject>
             </c:VehiclePartDemo>
 		</div>        
+        
+        <br />
+        <div class="well">
+            <strong class="lead">Vehicle Renderer</strong>
+        	<c:VehicleRendererComp aura:id="vehicleRenderer" />
+        </div>
     </div>
 	
 </aura:application>
