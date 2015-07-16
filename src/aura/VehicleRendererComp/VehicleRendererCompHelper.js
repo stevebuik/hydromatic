@@ -1,6 +1,6 @@
 ({
 	renderVehicleContent: function(component, content) {
-        
+        /*
         this.dispatchLockScreenEvent(component, true);
         this.dispatchAppMessageEvent(component, false, "", "", "");
         
@@ -17,6 +17,10 @@
             this.generateERDToWeb(content);
     	});
     	$A.enqueueAction(action);
+        */
+        
+        var content = component.get("v.graphvizContent");
+        this.generateERDToWeb(content);
     },
     dispatchLockScreenEvent: function(component, isLoading){
         var appEvent = $A.get("e.c:LockScreenEvent");

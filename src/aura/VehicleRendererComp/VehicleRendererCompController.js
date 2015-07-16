@@ -1,7 +1,6 @@
 ({
-	renderVeicle : function(component, event, helper) {
+	onRenderGraphviz : function(component, event, helper) {
         
-        var content = event.getParam("content");
-		helper.renderVehicleContent(component, content);
+		helper.renderVehicleContent(component);
 	}
 })
