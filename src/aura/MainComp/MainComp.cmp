@@ -1,0 +1,36 @@
+<aura:component extensible="true">
+    
+    <link href='/resource/styles/css/bootstrap.min.css' rel="stylesheet"/>
+    
+    <aura:attribute name="pageHeader" type="String" description="Page title"/>
+    <aura:attribute name="commandCount" type="Integer" />
+    <aura:handler value="{!this}" name="init" action="{!c.onInit}"/>
+    
+    <!--Events and Handlers-->
+    <aura:handler event="c:LockScreenEvent" action="{!c.toggleLockScreen}" />
+    
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">{!v.pageHeader}</a>
+            </div>
+            
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/">Back to Salesforce Home</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+    
+    <div class="container">
+        <div aura:id="lock" id="lock" class="lockOff">
+            <center><ui:spinner aura:id="spinner"/></center>
+        </div>
+        <div id="applicationMessage">
+            <c:ApplicationMessage aura:id="appMessage" isShow="false" />
+        </div>
+        {!v.body}
+    </div>
+</aura:component>
