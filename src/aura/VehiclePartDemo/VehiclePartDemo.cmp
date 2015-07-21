@@ -1,16 +1,17 @@
 <aura:component >
 
     <aura:attribute name="componentName" type="String"/>
-    <aura:attribute name="instructions" type="String"/>
+    <aura:attribute name="learning" type="Aura.Component[]"/>
     <aura:attribute name="debugData" type="String"/>
             
     <div class="alert alert-success">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <strong>{!v.componentName}</strong>
             </div>
-            <div class="col-sm-6 text-right">
-                <p>{!v.instructions}</p>
+            <div class="col-sm-8">
+                <strong>What can you learn from this?</strong>
+                {!v.learning}
             </div>
         </div>
         <div class="well">{!v.body}</div>
