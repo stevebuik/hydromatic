@@ -1,23 +1,5 @@
 ({
 	renderVehicleContent: function(component, content) {
-        /*
-        this.dispatchLockScreenEvent(component, true);
-        this.dispatchAppMessageEvent(component, false, "", "", "");
-        
-        var action = component.get("c.getVehicleContent");
-        action.setParams({
-        	"content": content
-        });
-        
-    	var self = this;
-        action.setCallback(this, function(a) {
-        	this.dispatchLockScreenEvent(component, false);
-            this.dispatchAppMessageEvent(component, true, "confirm", "Information", "Vehicle successfully renderred.");
-            var result = a.getReturnValue();
-            this.generateERDToWeb(content);
-    	});
-    	$A.enqueueAction(action);
-        */
         
         var content = component.get("v.graphvizContent");
         this.generateERDToWeb(content);
