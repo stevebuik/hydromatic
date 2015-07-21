@@ -30,3 +30,23 @@
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
 }
+
+.THIS .panel-primary{
+    border-color: #2481bb; 
+}
+
+.THIS .panel-heading-success{
+    width: 100%;
+    background:#d6e9c6;
+    font-weight:bold;
+    font-size:16px;
+    color:#3c763d;
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.THIS .panel-success{
+    border-color: #d6e9c6; 
+}

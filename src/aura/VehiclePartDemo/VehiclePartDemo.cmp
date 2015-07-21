@@ -3,20 +3,19 @@
     <aura:attribute name="componentName" type="String"/>
     <aura:attribute name="learning" type="Aura.Component[]"/>
     <aura:attribute name="debugData" type="String"/>
-            
-    <div class="alert alert-success">
-        <div class="row">
-            <div class="col-sm-4">
-                <strong>{!v.componentName}</strong>
+	
+    <div class="panel panel-success">
+        <div class="panel-heading-success" >{!v.componentName}</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-8">
+                    <strong>What can you learn from this?</strong>
+                    {!v.learning}
+                </div>
             </div>
-            <div class="col-sm-8">
-                <strong>What can you learn from this?</strong>
-                {!v.learning}
-            </div>
+            <div class="well">{!v.body}</div>
+            <strong>Debug Info</strong>
+            <p>{!v.debugData}</p>
         </div>
-        <div class="well">{!v.body}</div>
-        <strong>Debug Info</strong>
-        <p>{!v.debugData}</p>
-    </div>
-                                            
+    </div>                               
 </aura:component>

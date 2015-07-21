@@ -18,14 +18,15 @@
     <div class="panel panel-primary">
         <div class="panel-heading-primary" role="button" data-toggle="collapse" data-target="#collapseConfig" aria-expanded="false" aria-controls="collapseConfig">File Choosers</div>
         <div class="panel-body collapse in" id="collapseConfig">
+            
             <c:VehiclePartDemo aura:id="demo1">
                 <aura:set attribute="componentName" value="Mock File Chooser"/>
                 <aura:set attribute="learning">
-                   <ul>
-                       <li>File Choosers inherit UI from <a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/FileManager/FileManager.cmp">FileManager.cmp</a></li>
-                       <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/FileManagerMock/FileManagerMockHelper.js">Override the getFiles function</a> to provide picklist options</li>
-                       <li>Default selection behaviour is to <a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManager/FileManagerHelper.js#L21-L31">emit an Application Event</a></li>
-	               </ul>
+                    <ul>
+                        <li>File Choosers inherit UI from <a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/FileManager/FileManager.cmp">FileManager.cmp</a></li>
+                        <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/FileManagerMock/FileManagerMockHelper.js">Override the getFiles function</a> to provide picklist options</li>
+                        <li>Default selection behaviour is to <a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManager/FileManagerHelper.js#L21-L31">emit an Application Event</a></li>
+                    </ul>
                 </aura:set>
                 <c:FileManagerMock fileSelectedEvent="{!c.showEventsFromApp}">
                     <aura:set attribute="eventContext" value="demo1"/>
