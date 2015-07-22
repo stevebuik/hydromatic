@@ -65,6 +65,27 @@
                     <aura:set attribute="eventContext" value="demo3"/>
                 </c:FileManagerSObject>
             </c:VehiclePartDemo>
+            
+        </div>
+    </div>
+    
+    <div class="panel panel-primary">
+        <div class="panel-heading-primary" role="button" data-toggle="collapse" data-target="#collapseGenericComponents" aria-expanded="false" aria-controls="collapseGenericComponents">Message Components</div>
+        <div class="panel-body collapse in" id="collapseGenericComponents">
+            <c:VehiclePartDemo aura:id="demo4">
+                <aura:set attribute="componentName" value="Application Message"/>
+                
+				<ui:inputSelect aura:id="inputSeverity" label="Severity:">
+                    <ui:inputSelectOption text="error" label="Error" value="true" />
+                    <ui:inputSelectOption text="confirm" label="Confirm" />
+                    <ui:inputSelectOption text="info" label="Information" />
+                    <ui:inputSelectOption text="warning" label="Warning" />
+                </ui:inputSelect>
+                <ui:button label="Show Message" press="{!c.showApplicationMessage}" />
+                <c:ApplicationMessage aura:id="appMessage" >
+                    <aura:set attribute="isShow" value="false"/>
+                </c:ApplicationMessage>
+            </c:VehiclePartDemo>
         </div>
     </div>
     

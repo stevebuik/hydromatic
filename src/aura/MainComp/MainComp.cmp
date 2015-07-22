@@ -28,9 +28,6 @@
         <div aura:id="lock" id="lock" class="lockOff">
             <center><ui:spinner aura:id="spinner"/></center>
         </div>
-        <div id="applicationMessage">
-            <c:ApplicationMessage aura:id="appMessage" isShow="false" />
-        </div>
         {!v.body}
     </div>
 </aura:component>
