@@ -17,10 +17,10 @@
         var severity = component.find("inputSeverity").get("v.value");
 
         var appEvent = $A.get("e.c:ApplicationMessageEvent");
-        appEvent.setParams({ "isShow": true,
-							 "severity": severity,
-                            "title" : "Test Title",
-                            "body" : "Test Body"
+        appEvent.setParams({"isShow": true,
+            				"severity": severity,
+            				"title" : "Test Title",
+            				"body" : "Test Body"
                            })
         		.fire();
         

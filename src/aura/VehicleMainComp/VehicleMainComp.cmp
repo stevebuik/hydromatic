@@ -70,11 +70,18 @@
     </div>
     
     <div class="panel panel-primary">
-        <div class="panel-heading-primary" role="button" data-toggle="collapse" data-target="#collapseGenericComponents" aria-expanded="false" aria-controls="collapseGenericComponents">Message Components</div>
-        <div class="panel-body collapse in" id="collapseGenericComponents">
+        <div class="panel-heading-primary" role="button" data-toggle="collapse" data-target="#collapseMessageComponents" aria-expanded="false" aria-controls="collapseMessageComponents">Message Components</div>
+        <div class="panel-body collapse in" id="collapseMessageComponents">
             <c:VehiclePartDemo aura:id="demo4">
                 <aura:set attribute="componentName" value="Application Message"/>
-                
+                <aura:set attribute="learning">
+                    <ul>
+                        <li>Aplication Message Component to deliver messages to user <a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/ApplicationMessage/ApplicationMessage.cmp">ApplicationMessage.cmp</a></li>
+                        <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/ApplicationMessageEvent/ApplicationMessageEvent.evt">ApplicationMessageEvent</a> to specify message behaviours</li>
+                        <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/8fe563b49800e41ebc08c667e066a9d546f8f0a6/src/aura/VehicleMainComp/VehicleMainCompController.js#L15-L28">Emit an Application Event</a> to show message to user</li>
+                    </ul>
+                </aura:set>
+
 				<ui:inputSelect aura:id="inputSeverity" label="Severity:">
                     <ui:inputSelectOption text="error" label="Error" value="true" />
                     <ui:inputSelectOption text="confirm" label="Confirm" />
