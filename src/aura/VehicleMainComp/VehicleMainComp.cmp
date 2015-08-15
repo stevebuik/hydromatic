@@ -10,10 +10,16 @@
     
     <!--Attributes-->
     <aura:set attribute="pageHeader" value="Vehicle App - Lightning Demo"/>
-    
+
+	<!-- event handers -->    
+    <aura:handler event="aura:locationChange" action="{!c.handleLocationChange}"/>
+
+    <!-- UI -->
     <p>This application is a playground for components. Each green panel is a different component or configuration of a component.</p>
-        
-    <p>The components (try using them) are in the grey box underneath the learning list</p>
+
+    <p>Components that inherit from a common parent are grouped in a blue panel.</p>
+    
+    <p>Play with the components using the Test Drive</p>
     
     <div class="panel panel-primary">
         <div class="panel-heading-primary" role="button" data-toggle="collapse" data-target="#collapseConfig" aria-expanded="false" aria-controls="collapseConfig">File Choosers</div>
@@ -21,6 +27,7 @@
             
             <c:VehiclePartDemo aura:id="demo1">
                 <aura:set attribute="componentName" value="Mock File Chooser"/>
+                <aura:set attribute="focusId" value="mock-choose"/>
                 <aura:set attribute="learning">
                     <ul>
                         <li>File Choosers inherit UI from <a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/FileManager/FileManager.cmp">FileManager.cmp</a></li>
@@ -35,6 +42,7 @@
             
             <c:VehiclePartDemo aura:id="demo2">
                 <aura:set attribute="componentName" value="SObject Chooser"/>
+                <aura:set attribute="focusId" value="doc-choose"/>
                 <aura:set attribute="learning">
                    <ul>                       
                        <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManagerSObject/FileManagerSObjectHelper.js#L2-L17">getFiles function</a> can query records from SFDC</li>
@@ -51,6 +59,7 @@
             
             <c:VehiclePartDemo aura:id="demo3">
                 <aura:set attribute="componentName" value="SObject Chooser"/>
+                <aura:set attribute="focusId" value="account-choose"/>
                 <aura:set attribute="learning">
                    <ul>
                        <li>Use Apex to <a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManagerSObject/FileManagerSObjectHelper.js#L19-L36">override selection behaviour</a> to read more data from SFDC</li>
@@ -69,38 +78,38 @@
         </div>
     </div>
     
-    <div class="panel panel-primary">
-        <div class="panel-heading-primary" role="button" data-toggle="collapse" data-target="#collapseMessageComponents" aria-expanded="false" aria-controls="collapseMessageComponents">Message Components</div>
-        <div class="panel-body collapse in" id="collapseMessageComponents">
-            <c:VehiclePartDemo aura:id="demo4">
-                <aura:set attribute="componentName" value="Application Message"/>
-                <aura:set attribute="learning">
-                    <ul>
-                        <li>Aplication Message Component to deliver messages to user <a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/ApplicationMessage/ApplicationMessage.cmp">ApplicationMessage.cmp</a></li>
-                        <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/ApplicationMessageEvent/ApplicationMessageEvent.evt">ApplicationMessageEvent</a> to specify message behaviours</li>
-                        <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/8fe563b49800e41ebc08c667e066a9d546f8f0a6/src/aura/VehicleMainComp/VehicleMainCompController.js#L15-L28">Emit an Application Event</a> to show message to user</li>
-                    </ul>
-                </aura:set>
-
-				<ui:inputSelect aura:id="inputSeverity" label="Severity:">
-                    <ui:inputSelectOption text="error" label="Error" value="true" />
-                    <ui:inputSelectOption text="confirm" label="Confirm" />
-                    <ui:inputSelectOption text="info" label="Information" />
-                    <ui:inputSelectOption text="warning" label="Warning" />
-                </ui:inputSelect>
-                <ui:button label="Show Message" press="{!c.showApplicationMessage}" />
-                <c:ApplicationMessage aura:id="appMessage" >
-                    <aura:set attribute="isShow" value="false"/>
-                </c:ApplicationMessage>
-            </c:VehiclePartDemo>
-        </div>
-    </div>
+    <c:VehiclePartDemo aura:id="demo4">
+        <aura:set attribute="componentName" value="Application Message"/>
+        <aura:set attribute="focusId" value="app-msg"/>
+        <aura:set attribute="learning">
+            <ul>
+                <li>Aplication Message Component to deliver messages to user <a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/ApplicationMessage/ApplicationMessage.cmp">ApplicationMessage.cmp</a></li>
+                <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/ApplicationMessageEvent/ApplicationMessageEvent.evt">ApplicationMessageEvent</a> to specify message behaviours</li>
+                <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/8fe563b49800e41ebc08c667e066a9d546f8f0a6/src/aura/VehicleMainComp/VehicleMainCompController.js#L15-L28">Emit an Application Event</a> to show message to user</li>
+            </ul>
+        </aura:set>
+        
+        <ui:inputSelect aura:id="inputSeverity" label="Severity:">
+            <ui:inputSelectOption text="error" label="Error" value="true" />
+            <ui:inputSelectOption text="confirm" label="Confirm" />
+            <ui:inputSelectOption text="info" label="Information" />
+            <ui:inputSelectOption text="warning" label="Warning" />
+        </ui:inputSelect>
+        <ui:button label="Show Message" press="{!c.showApplicationMessage}" />
+        <c:ApplicationMessage aura:id="appMessage" >
+            <aura:set attribute="isShow" value="false"/>
+        </c:ApplicationMessage>
+    </c:VehiclePartDemo>
     
-    <div class="panel panel-primary">
-        <div class="panel-heading-primary" role="button" data-toggle="collapse" data-target="#collapseVehicleRenderer" aria-expanded="false" aria-controls="collapseVehicleRenderer">Graphviz Renderer</div>
-        <div class="panel-body collapse in" id="collapseVehicleRenderer">
-            <c:VehicleRendererComp aura:id="vehicleRenderer" />
-        </div>
-    </div>
+    <c:VehiclePartDemo aura:id="demo5">
+        <aura:set attribute="componentName" value="Graphviz Renderer"/>
+        <aura:set attribute="focusId" value="graphviz"/>
+        <aura:set attribute="learning">
+            <ul>
+                <li>Render a Graphviz string to SVG in the browser</li>
+            </ul>
+        </aura:set>
+        <c:VehicleRendererComp aura:id="vehicleRenderer" />
+    </c:VehiclePartDemo>
     
 </aura:component>

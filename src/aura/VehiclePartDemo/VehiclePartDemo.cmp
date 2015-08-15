@@ -1,6 +1,7 @@
 <aura:component >
 
     <aura:attribute name="componentName" type="String"/>
+    <aura:attribute name="focusId" type="String"/>
     <aura:attribute name="learning" type="Aura.Component[]"/>
     <aura:attribute name="debugData" type="String"/>
 	
@@ -8,9 +9,17 @@
         <div class="panel-heading-success" >{!v.componentName}</div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-12">
                     <strong>What can you learn from this?</strong>
-                    {!v.learning}
+                    {!v.learning}                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+		            <strong>Test Drive</strong>
+                </div>
+                <div class="col-sm-6">
+					<a id="buttonFocus" href="{!'#'+v.focusId}">Focus</a>                
                 </div>
             </div>
             <div class="well">{!v.body}</div>

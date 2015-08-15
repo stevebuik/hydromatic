@@ -7,11 +7,15 @@
         
         // TODO fire jquery ready event
 	},
-	showEventsFromApp : function(component, event, helper) {
+    handleLocationChange : function(component, event, helper) {
+        console.log(event.getParam("token"));
+    },
+    showEventsFromApp : function(component, event, helper) {
         var demoComponent = component.find(event.getParams().context);
         delete event.getParams().context;
         demoComponent.set("v.debugData", JSON.stringify(event.getParams()));
 	},
+    // TODO remove component specific code from main component
     showApplicationMessage : function(component, event, helper){
         
         var severity = component.find("inputSeverity").get("v.value");
