@@ -8,7 +8,9 @@
         // TODO fire jquery ready event
 	},
     handleLocationChange : function(component, event, helper) {
-        console.log(event.getParam("token"));
+        var appEvent = $A.get("e.c:FocusEvent");
+        appEvent.setParams({demoId: event.getParam("token")});
+        appEvent.fire();
     },
     showEventsFromApp : function(component, event, helper) {
         var demoComponent = component.find(event.getParams().context);

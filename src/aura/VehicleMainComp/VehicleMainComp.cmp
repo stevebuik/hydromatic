@@ -7,6 +7,7 @@
                   afterScriptsLoaded="{!c.init}"/>
     
 	<!-- event handers -->    
+	<aura:registerEvent name="FocusEvent" type="c:FocusEvent"/>
     <aura:handler event="aura:locationChange" action="{!c.handleLocationChange}"/>
 
     <div class="container">
@@ -17,6 +18,8 @@
         <p>Components that inherit from a common parent are grouped in a blue panel.</p>
         
         <p>Play with the components using the Test Drive</p>
+
+        <p>To use a single demo alone, click the "Focus" link. Use the Back button to show all demos again.</p>
         
         <div class="panel panel-primary">
             <div class="panel-heading-primary" role="button" data-toggle="collapse" data-target="#collapseConfig" aria-expanded="false" aria-controls="collapseConfig">File Choosers</div>

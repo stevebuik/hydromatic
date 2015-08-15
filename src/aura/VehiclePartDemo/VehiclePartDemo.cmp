@@ -5,6 +5,8 @@
     <aura:attribute name="learning" type="Aura.Component[]"/>
     <aura:attribute name="debugData" type="String"/>
 	
+	<aura:handler event="c:FocusEvent" action="{!c.handleFocus}"/>
+    
     <div class="panel panel-success">
         <div class="panel-heading-success" >{!v.componentName}</div>
         <div class="panel-body">
@@ -19,7 +21,7 @@
 		            <strong>Test Drive</strong>
                 </div>
                 <div class="col-sm-6">
-					<a id="buttonFocus" href="{!'#'+v.focusId}">Focus</a>                
+					<a class="pull-right" id="buttonFocus" href="{!'#'+v.focusId}">Focus</a>                
                 </div>
             </div>
             <div class="well">{!v.body}</div>
