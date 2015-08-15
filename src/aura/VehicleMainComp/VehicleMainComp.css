@@ -1,31 +1,25 @@
-.THIS .panel-heading-primary{
-    width: 100%;
+.THIS {
+	padding-top: 20px;    
+}
+
+.THIS .panel {
+    font-size:16px;    
+}
+
+.THIS .panel-heading-primary {
     background:#2481bb;
-    font-weight:bold;
-    font-size:16px;
     color:#ffffff;
     padding: 10px 15px;
     border-bottom: 1px solid transparent;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
 }
 
-.THIS .panel-primary{
-    border-color: #2481bb; 
-}
-
-.THIS .panel-heading-success{
-    width: 100%;
+.THIS .panel-heading-success {
     background:#d6e9c6;
-    font-weight:bold;
-    font-size:16px;
     color:#3c763d;
     padding: 10px 15px;
     border-bottom: 1px solid transparent;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
 }
 
-.THIS .panel-success{
+.THIS .panel-success {
     border-color: #d6e9c6; 
 }
