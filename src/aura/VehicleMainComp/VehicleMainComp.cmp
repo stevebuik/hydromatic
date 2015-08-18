@@ -121,6 +121,8 @@
                     <li>Render a Graphviz string to SVG in the browser</li>
                 </ul>
             </aura:set>
+            <ui:button label="Graph 1" press="{!c.showChart1}" />
+            <ui:button label="Graph 2" press="{!c.showChart2}" />
             <c:VehicleRendererComp aura:id="vehicleRenderer" />
         </c:VehiclePartDemo>
         
