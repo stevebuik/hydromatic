@@ -6,6 +6,10 @@
         } 
         
         // TODO fire jquery ready event
+        
+        component.find("millerDemo").set("v.items", [{id: "123", label: "Foo"}, 
+                                                     {id: "456", label: "Foobar"}]);
+                
 	},
     handleLocationChange : function(component, event, helper) {
         var appEvent = $A.get("e.c:FocusEvent");

@@ -1,0 +1,13 @@
+<aura:component >
+    
+    <aura:attribute name="itemComponent" type="String" description="The component used to display an item" default="c:MillerItem"/>
+    <aura:attribute name="items" type="Object" description="An array of javascript objects to be displayed"/>
+
+	<aura:handler name="change" value="{!v.items}" action="{!c.upsertItems}"/> 
+    
+    <div class="millerColumn">
+        <!-- See http://peterknolle.com/lightning-input-component-value-binding -->
+        <ui:inputText aura:id="search" keyup="{!c.filter}" updateOn="keyup"/>
+        {!v.body}
+    </div>
+</aura:component>

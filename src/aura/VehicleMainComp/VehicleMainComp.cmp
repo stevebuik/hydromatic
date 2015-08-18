@@ -20,6 +20,18 @@
         <p>Play with the components using the Test Drive</p>
 
         <p>To use a single demo alone, click the "Focus" link. Use the Back button to show all demos again.</p>
+
+        <c:VehiclePartDemo aura:id="demo6">
+            <aura:set attribute="componentName" value="Miller Column"/>
+            <aura:set attribute="focusId" value="miller"/>
+            <aura:set attribute="learning">
+                <ul>
+                    <li>CRUD on a list that can search and display item states</li>
+                    <li>Use of Interfaces for polymorphism</li>
+                </ul>
+            </aura:set>
+            <c:MillerColumn aura:id="millerDemo"/>
+        </c:VehiclePartDemo>
         
         <div class="panel panel-primary">
             <div class="panel-heading-primary" role="button" data-toggle="collapse" data-target="#collapseConfig" aria-expanded="false" aria-controls="collapseConfig">File Choosers</div>
