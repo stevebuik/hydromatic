@@ -1,0 +1,3 @@
+<aura:interface >
+	<aura:attribute name="state" type="String" default=""/>
+</aura:interface>

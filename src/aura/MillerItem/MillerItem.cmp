@@ -1,8 +1,12 @@
-<aura:component implements="c:Searchable">
+<aura:component implements="c:Searchable,c:DisplaysState">
 
     <aura:attribute name="data" type="Object" description="The javascript data underlying a MillerColumn item"/>
 
+    <!-- allows the item to read the data attribute and provide searchable text -->
 	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+
+    <!-- allows the item to visually react to state changes -->
+	<aura:handler name="change" value="{!v.state}" action="{!c.stateChanged}"/> 
     
     <div>{!v.searchText}</div>
 </aura:component>

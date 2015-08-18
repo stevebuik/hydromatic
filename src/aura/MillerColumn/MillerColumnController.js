@@ -1,13 +1,17 @@
 ({
-    filter : function(cmp) {
+    filter : function(cmp, event, helper) {
         var searchTerm = cmp.find("search").get("v.value");
+        var counter = 0;
         $j.each(cmp.get("v.body"), function( index, item ) {
 	        // this treats the item as a Searchable interface impl only
             if (item.get("v.searchText").toLowerCase().indexOf(searchTerm) >= 0) {
     			$A.util.removeClass(item.getElement(), "hidden");
+				counter++;                
             } else {
     			$A.util.addClass(item.getElement(), "hidden");
             }
+            // TODO get helper using overriden opt
+            item.set("v.state", helper.calculateState(counter, item.get("v.data")))
         });
     },
     

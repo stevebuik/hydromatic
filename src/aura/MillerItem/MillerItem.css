@@ -1,0 +1,10 @@
+.THIS {
+}
+
+.THIS.inFocus {
+    font-weight: bold;
+}
+
+.THIS.unFocused {
+    font-weight: normal;
+}
