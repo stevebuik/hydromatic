@@ -7,6 +7,7 @@
                   afterScriptsLoaded="{!c.init}"/>
     
 	<!-- event handers -->    
+	<aura:registerEvent name="LibraryLoadedEvent" type="c:LibraryLoadedEvent"/>
 	<aura:registerEvent name="FocusEvent" type="c:FocusEvent"/>
     <aura:handler event="aura:locationChange" action="{!c.handleLocationChange}"/>
 
@@ -21,6 +22,18 @@
 
         <p>To use a single demo alone, click the "Focus" link. Use the Back button to show all demos again.</p>
 
+        <c:VehiclePartDemo aura:id="demo7">
+            <aura:set attribute="componentName" value="Keyboard Catcher"/>
+            <aura:set attribute="focusId" value="keys"/>
+            <aura:set attribute="learning">
+                <ul>
+                    <li>Filter and map keyboard to component events (with using an input component)</li>
+                </ul>
+            </aura:set>
+            <p>This component has no user interface. Use the arrow keys to drive it...</p>
+            <c:KeyboardCatcher aura:id="keys" keyEvent="{!c.handleKeyboardEvent}"/>
+        </c:VehiclePartDemo>
+        
         <c:VehiclePartDemo aura:id="demo6">
             <aura:set attribute="componentName" value="Miller Column"/>
             <aura:set attribute="focusId" value="miller"/>

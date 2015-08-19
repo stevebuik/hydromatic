@@ -4,13 +4,30 @@
         if (typeof jQuery !== "undefined" && typeof $j === "undefined") {
             $j = jQuery.noConflict(true);
         } 
+
+        var keysToWatch = {13: "ENTER",
+                           38: "UP",
+                           39: "RIGHT",
+                           40: "DOWN",
+                           37: "LEFT",
+                           32: "SPACE"};
+        component.find("keys").set("v.keyMap", keysToWatch);
         
-        // TODO fire jquery ready event
+        // fire jquery ready event for other components that want to use $j
+        var readyEvent = $A.get("e.c:LibraryLoadedEvent");
+        readyEvent.setParams({library: "JQUERY"});
+        readyEvent.fire();
         
-        component.find("millerDemo").set("v.items", [{id: "123", label: "Foo"}, 
-                                                     {id: "456", label: "Foobar"}]);
+        component.find("millerDemo").set("v.items", 
+                                         [{id: "123", label: "Foo"},
+                                          {id: "456", label: "Foobar"}]);
                 
 	},
+    
+    handleKeyboardEvent: function(component, event, helper) {             
+        var demoComponent = component.find("demo7");
+		demoComponent.set("v.debugData", event.getParams()["keyPressed"]);    
+    },
     
     // make the app respond to uri changes by firing an event
     // that parts will use to show/hide themselves

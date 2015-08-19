@@ -1,0 +1,8 @@
+<aura:component >
+    <aura:attribute name="keyMap" type="Object" description="A mapping of codes to keywords for keys that should emit events"/>
+
+    <aura:handler event="c:LibraryLoadedEvent" action="{!c.javascriptReady}"/>
+
+	<aura:registerEvent name="keyEvent" type="c:KeyboardEvent"/>
+    
+</aura:component>
