@@ -27,7 +27,7 @@
             <aura:set attribute="focusId" value="keys"/>
             <aura:set attribute="learning">
                 <ul>
-                    <li>Filter and map keyboard to component events (with using an input component)</li>
+                    <li>Filter and map keyboard to component events (without using an input component)</li>
                 </ul>
             </aura:set>
             <p>This component has no user interface. Use the arrow keys to drive it...</p>
@@ -41,8 +41,12 @@
                 <ul>
                     <li>CRUD on a list that can search and display item states</li>
                     <li>Use of Interfaces for polymorphism</li>
+                    <li>Dynamic component creation</li>
                 </ul>
             </aura:set>
+            <ui:button label="Move Focus Up" press="{!c.millerFocusUp}" />
+            <ui:button label="Move Focus Down" press="{!c.millerFocusDown}" />
+            <hr/>
             <c:MillerColumn aura:id="millerDemo"/>
         </c:VehiclePartDemo>
         

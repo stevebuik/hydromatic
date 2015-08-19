@@ -2,8 +2,10 @@
     
     <aura:attribute name="itemComponent" type="String" description="The component used to display an item" default="c:MillerItem"/>
     <aura:attribute name="items" type="Object" description="An array of javascript objects to be displayed"/>
-
+    <aura:attribute name="focusPosition" type="Integer" description="" default="0"/>
+    
 	<aura:handler name="change" value="{!v.items}" action="{!c.upsertItems}"/> 
+	<aura:handler name="change" value="{!v.focusPosition}" action="{!c.filter}"/> 
     
     <div class="millerColumn">
         <!-- See http://peterknolle.com/lightning-input-component-value-binding -->
