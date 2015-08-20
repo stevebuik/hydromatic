@@ -15,98 +15,61 @@
     
         <!-- UI -->
         <p>This application is a playground for components. Each green panel is a different component or configuration of a component.</p>
-    
-        <p>Components that inherit from a common parent are grouped in a blue panel.</p>
-        
+            
         <p>Play with the components using the Test Drive</p>
 
         <p>To use a single demo alone, click the "Focus" link. Use the Back button to show all demos again.</p>
-
-        <c:VehiclePartDemo aura:id="demo7">
-            <aura:set attribute="componentName" value="Keyboard Catcher"/>
-            <aura:set attribute="focusId" value="keys"/>
+                                
+        <c:VehiclePartDemo aura:id="demo1">
+            <aura:set attribute="componentName" value="File Manager: Mock Files"/>
+            <aura:set attribute="focusId" value="mock-choose"/>
             <aura:set attribute="learning">
                 <ul>
-                    <li>Filter and map keyboard to component events (without using an input component)</li>
+                    <li>File Choosers inherit UI the <a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/FileManager/FileManager.cmp">FileManager.cmp</a> component</li>
+                    <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/FileManagerMock/FileManagerMockHelper.js">Override the getFiles function</a> to provide picklist options</li>
+                    <li>Default selection behaviour is to <a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManager/FileManagerHelper.js#L21-L31">emit an Application Event</a></li>
                 </ul>
             </aura:set>
-            <p>This component has no user interface. Use the arrow keys to drive it...</p>
-            <c:KeyboardCatcher aura:id="keys" keyEvent="{!c.handleKeyboardEvent}"/>
+            <c:FileManagerMock fileSelectedEvent="{!c.showEventsFromApp}">
+                <aura:set attribute="eventContext" value="demo1"/>
+            </c:FileManagerMock>
         </c:VehiclePartDemo>
-        
-        <c:VehiclePartDemo aura:id="demo6">
-            <aura:set attribute="componentName" value="Miller Column"/>
-            <aura:set attribute="focusId" value="miller"/>
+                
+        <c:VehiclePartDemo aura:id="demo2">
+            <aura:set attribute="componentName" value="File Manager: Record Chooser"/>
+            <aura:set attribute="focusId" value="doc-choose"/>
+            <aura:set attribute="learning">
+                <ul>                       
+                    <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManagerSObject/FileManagerSObjectHelper.js#L2-L17">getFiles function</a> can query records from SFDC</li>
+                    <li>The "Choose XXXX" option can be <a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManager/FileManager.cmp#L7">enabled using an attribute</a></li>
+                    <li>Default selection behaviour same as Mock Chooser above</li>
+                </ul>
+            </aura:set>
+            <c:FileManagerSObject fileSelectedEvent="{!c.showEventsFromApp}">
+                <aura:set attribute="object" value="Document"/>
+                <aura:set attribute="chooseItemEnabled" value="true"/>
+                <aura:set attribute="eventContext" value="demo2"/>                    
+            </c:FileManagerSObject>
+        </c:VehiclePartDemo>
+                
+        <c:VehiclePartDemo aura:id="demo3">
+            <aura:set attribute="componentName" value="File Manager: Record Chooser with Query"/>
+            <aura:set attribute="focusId" value="account-choose"/>
             <aura:set attribute="learning">
                 <ul>
-                    <li>CRUD on a list that can search and display item states</li>
-                    <li>Use of Interfaces for polymorphism</li>
-                    <li>Dynamic component creation</li>
+                    <li>Use Apex to <a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManagerSObject/FileManagerSObjectHelper.js#L19-L36">override selection behaviour</a> to read more data from SFDC</li>
+                    <li>Fields to select from SFDC <a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManager/FileManager.cmp#L9">are configurable</a></li>
+                    <li>A default selection can be <a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManager/FileManager.cmp#L8">set using an attribute</a></li>
                 </ul>
             </aura:set>
-            <ui:button label="Move Focus Up" press="{!c.millerFocusUp}" />
-            <ui:button label="Move Focus Down" press="{!c.millerFocusDown}" />
-            <hr/>
-            <c:MillerColumn aura:id="millerDemo"/>
+            <c:FileManagerSObject fileSelectedEvent="{!c.showEventsFromApp}">
+                <aura:set attribute="object" value="Account"/>
+                <aura:set attribute="fields" value="Id,Name,Phone"/>
+                <aura:set attribute="defaultItem" value="sForce"/>
+                <aura:set attribute="eventContext" value="demo3"/>
+            </c:FileManagerSObject>
         </c:VehiclePartDemo>
-        
-        <div class="panel panel-primary">
-            <div class="panel-heading-primary" role="button" data-toggle="collapse" data-target="#collapseConfig" aria-expanded="false" aria-controls="collapseConfig">File Choosers</div>
-            <div class="panel-body collapse in" id="collapseConfig">
-                
-                <c:VehiclePartDemo aura:id="demo1">
-                    <aura:set attribute="componentName" value="Mock File Chooser"/>
-                    <aura:set attribute="focusId" value="mock-choose"/>
-                    <aura:set attribute="learning">
-                        <ul>
-                            <li>File Choosers inherit UI from <a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/FileManager/FileManager.cmp">FileManager.cmp</a></li>
-                            <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/FileManagerMock/FileManagerMockHelper.js">Override the getFiles function</a> to provide picklist options</li>
-                            <li>Default selection behaviour is to <a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManager/FileManagerHelper.js#L21-L31">emit an Application Event</a></li>
-                        </ul>
-                    </aura:set>
-                    <c:FileManagerMock fileSelectedEvent="{!c.showEventsFromApp}">
-                        <aura:set attribute="eventContext" value="demo1"/>
-                    </c:FileManagerMock>
-                </c:VehiclePartDemo>
-                
-                <c:VehiclePartDemo aura:id="demo2">
-                    <aura:set attribute="componentName" value="SObject Chooser"/>
-                    <aura:set attribute="focusId" value="doc-choose"/>
-                    <aura:set attribute="learning">
-                       <ul>                       
-                           <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManagerSObject/FileManagerSObjectHelper.js#L2-L17">getFiles function</a> can query records from SFDC</li>
-                           <li>The "Choose XXXX" option can be <a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManager/FileManager.cmp#L7">enabled using an attribute</a></li>
-                           <li>Default selection behaviour same as Mock Chooser above</li>
-                       </ul>
-                    </aura:set>
-                    <c:FileManagerSObject fileSelectedEvent="{!c.showEventsFromApp}">
-                        <aura:set attribute="object" value="Document"/>
-                        <aura:set attribute="chooseItemEnabled" value="true"/>
-                        <aura:set attribute="eventContext" value="demo2"/>                    
-                    </c:FileManagerSObject>
-                </c:VehiclePartDemo>
-                
-                <c:VehiclePartDemo aura:id="demo3">
-                    <aura:set attribute="componentName" value="SObject Chooser"/>
-                    <aura:set attribute="focusId" value="account-choose"/>
-                    <aura:set attribute="learning">
-                       <ul>
-                           <li>Use Apex to <a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManagerSObject/FileManagerSObjectHelper.js#L19-L36">override selection behaviour</a> to read more data from SFDC</li>
-                           <li>Fields to select from SFDC <a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManager/FileManager.cmp#L9">are configurable</a></li>
-                           <li>A default selection can be <a target="source" href="https://github.com/stevebuik/hydromatic/blob/498e654549e07736a61cce192b3ea203985fdee5/src/aura/FileManager/FileManager.cmp#L8">set using an attribute</a></li>
-                       </ul>
-                    </aura:set>
-                    <c:FileManagerSObject fileSelectedEvent="{!c.showEventsFromApp}">
-                        <aura:set attribute="object" value="Account"/>
-                        <aura:set attribute="fields" value="Id,Name,Phone"/>
-                        <aura:set attribute="defaultItem" value="sForce"/>
-                        <aura:set attribute="eventContext" value="demo3"/>
-                    </c:FileManagerSObject>
-                </c:VehiclePartDemo>
-                
-            </div>
-        </div>
-        
+                        
         <c:VehiclePartDemo aura:id="demo4">
             <aura:set attribute="componentName" value="Application Message"/>
             <aura:set attribute="focusId" value="app-msg"/>
@@ -141,6 +104,34 @@
             <ui:button label="Graph 1" press="{!c.showChart1}" />
             <ui:button label="Graph 2" press="{!c.showChart2}" />
             <c:VehicleRendererComp aura:id="vehicleRenderer" />
+        </c:VehiclePartDemo>
+
+        <c:VehiclePartDemo aura:id="demo6">
+            <aura:set attribute="componentName" value="Miller Column"/>
+            <aura:set attribute="focusId" value="miller"/>
+            <aura:set attribute="learning">
+                <ul>
+                    <li>CRUD on a list that can search and display item states</li>
+                    <li>Use of Interfaces for polymorphism</li>
+                    <li>Dynamic component creation</li>
+                </ul>
+            </aura:set>
+            <ui:button label="Move Focus Up" press="{!c.millerFocusUp}" />
+            <ui:button label="Move Focus Down" press="{!c.millerFocusDown}" />
+            <hr/>
+            <c:MillerColumn aura:id="millerDemo"/>
+        </c:VehiclePartDemo>
+
+        <c:VehiclePartDemo aura:id="demo7">
+            <aura:set attribute="componentName" value="Keyboard Catcher"/>
+            <aura:set attribute="focusId" value="keys"/>
+            <aura:set attribute="learning">
+                <ul>
+                    <li>Filter and map keyboard to component events (without using an input component)</li>
+                </ul>
+            </aura:set>
+            <p>This component has no user interface. Use the arrow keys to drive it...</p>
+            <c:KeyboardCatcher aura:id="keys" keyEvent="{!c.handleKeyboardEvent}"/>
         </c:VehiclePartDemo>
         
     </div>
