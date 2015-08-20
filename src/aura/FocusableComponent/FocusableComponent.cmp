@@ -1,0 +1,7 @@
+<aura:component >
+    <aura:attribute name="focusId" type="String"/>
+
+	<aura:handler event="c:FocusEvent" action="{!c.handleFocus}"/>
+
+	{!v.body}    
+</aura:component>

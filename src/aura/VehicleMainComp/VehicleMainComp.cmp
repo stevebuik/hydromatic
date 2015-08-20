@@ -13,13 +13,15 @@
 
     <div class="container">
     
-        <!-- UI -->
-        <p>This application is a playground for components. Each green panel is a different component or configuration of a component.</p>
-            
-        <p>Play with the components using the Test Drive</p>
-
-        <p>To use a single demo alone, click the "Focus" link. Use the Back button to show all demos again.</p>
-                                
+        <c:FocusableComponent >
+            <aura:set attribute="focusId" value="instructions"/>            
+            <div>
+                <p>This application is a playground for components. Each green panel is a different component or configuration of a component.</p>                    
+                <p>Play with the components using the Test Drive</p>
+                <p>To use a single demo alone, click the "Focus" link. Use the Back button to show all demos again.</p>                              
+            </div>
+        </c:FocusableComponent>
+        
         <c:VehiclePartDemo aura:id="demo1">
             <aura:set attribute="componentName" value="File Manager: Mock Files"/>
             <aura:set attribute="focusId" value="mock-choose"/>
