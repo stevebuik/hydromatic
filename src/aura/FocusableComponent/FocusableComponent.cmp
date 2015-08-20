@@ -1,4 +1,4 @@
-<aura:component >
+<aura:component extensible="true">
     <aura:attribute name="focusId" type="String"/>
 
 	<aura:handler event="c:FocusEvent" action="{!c.handleFocus}"/>

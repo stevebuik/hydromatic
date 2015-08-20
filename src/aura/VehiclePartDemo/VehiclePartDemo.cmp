@@ -1,12 +1,9 @@
-<aura:component >
+<aura:component extends="c:FocusableComponent">
 
     <aura:attribute name="componentName" type="String"/>
-    <aura:attribute name="focusId" type="String"/>
     <aura:attribute name="learning" type="Aura.Component[]"/>
     <aura:attribute name="debugData" type="String"/>
-	
-	<aura:handler event="c:FocusEvent" action="{!c.handleFocus}"/>
-    
+	    
     <div class="panel panel-success">
         <div class="panel-heading-success" >{!v.componentName}</div>
         <div class="panel-body">
