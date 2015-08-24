@@ -1,0 +1,14 @@
+<aura:component >
+	<aura:attribute name="valueLabel" type="String" default="Value"/>
+	<aura:attribute name="minValue" type="Decimal" default="0"/>
+	<aura:attribute name="maxValue" type="Decimal" default="100"/>
+	<aura:attribute name="stepValue" type="Decimal" default="1"/>
+    
+	<aura:handler event="c:LibraryLoadedEvent" action="{!c.javascriptReady}"/>
+    
+    <div class="well clearfix">
+        <input id="sliderInput" type="text" data-slider-min="{!v.minValue}" data-slider-max="{!v.maxValue}" data-slider-step="{!v.stepValue}" data-slider-value="0"/>
+        <span class="sliderLabel">{!v.valueLabel}: <span id="sliderValue">0</span></span>
+    </div>
+    
+</aura:component>
