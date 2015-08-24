@@ -1,6 +1,5 @@
 ({
-	renderVehicleContent: function(component, content) {
-        
+	renderVehicleContent: function(component) {
         var content = component.get("v.graphvizContent");
         this.generateERDToWeb(content);
     },
@@ -36,6 +35,15 @@
     generateERDToWeb : function (content)
     {
         var erdMarkup = this.convertERDContentToMarkup(content,"svg");
-        document.getElementById("diagramContainer").innerHTML = erdMarkup;
+        var container = document.getElementById("diagramContainer");
+        container.innerHTML = erdMarkup;
+        
+        // Make svg responsive
+        var svg = container.getElementsByTagName('svg')[0];
+        if(svg != null)
+        {
+            svg.setAttribute('preserveaspectratio', 'xminymin meet');
+            svg.setAttribute('width', "100%");
+        }
     }
 })
