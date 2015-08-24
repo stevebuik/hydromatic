@@ -1,10 +1,16 @@
 <aura:component >
+    
 	<aura:attribute name="valueLabel" type="String" default="Value"/>
 	<aura:attribute name="minValue" type="Decimal" default="0"/>
 	<aura:attribute name="maxValue" type="Decimal" default="100"/>
 	<aura:attribute name="stepValue" type="Decimal" default="1"/>
     
-	<aura:handler event="c:LibraryLoadedEvent" action="{!c.javascriptReady}"/>
+    <ltng:require styles="/resource/sfbootstrapcss,
+                          /resource/slider"
+			      scripts="/resource/jquery,
+                           /resource/bootstrapjs,
+                           /resource/sliderjs"
+                  afterScriptsLoaded="{!c.init}"/>
     
     <div class="well clearfix">
         <input id="sliderInput" type="text" data-slider-min="{!v.minValue}" data-slider-max="{!v.maxValue}" data-slider-step="{!v.stepValue}" data-slider-value="0"/>

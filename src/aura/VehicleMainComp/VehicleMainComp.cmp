@@ -1,11 +1,9 @@
 <aura:component implements="force:appHostable" >
     
-    <ltng:require styles="/resource/sfbootstrapcss,
-                          /resource/slider"
+    <ltng:require styles="/resource/sfbootstrapcss"
 			      scripts="/resource/jquery,
                            /resource/bootstrapjs,
-                           /resource/VizJS,
-                           /resource/sliderjs"
+                           /resource/VizJS"
                   afterScriptsLoaded="{!c.init}"/>
     
 	<!-- event handers -->    
