@@ -71,31 +71,8 @@
                 <aura:set attribute="eventContext" value="demo3"/>
             </c:FileManagerSObject>
         </c:VehiclePartDemo>
-                        
-        <c:VehiclePartDemo aura:id="demo4">
-            <aura:set attribute="componentName" value="Application Message"/>
-            <aura:set attribute="focusId" value="app-msg"/>
-            <aura:set attribute="learning">
-                <ul>
-                    <li>Aplication Message Component to deliver messages to user <a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/ApplicationMessage/ApplicationMessage.cmp">ApplicationMessage.cmp</a></li>
-                    <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/master/src/aura/ApplicationMessageEvent/ApplicationMessageEvent.evt">ApplicationMessageEvent</a> to specify message behaviours</li>
-                    <li><a target="source" href="https://github.com/stevebuik/hydromatic/blob/8fe563b49800e41ebc08c667e066a9d546f8f0a6/src/aura/VehicleMainComp/VehicleMainCompController.js#L15-L28">Emit an Application Event</a> to show message to user</li>
-                </ul>
-            </aura:set>
-            
-            <ui:inputSelect aura:id="inputSeverity" label="Severity:">
-                <ui:inputSelectOption text="error" label="Error" value="true" />
-                <ui:inputSelectOption text="confirm" label="Confirm" />
-                <ui:inputSelectOption text="info" label="Information" />
-                <ui:inputSelectOption text="warning" label="Warning" />
-            </ui:inputSelect>
-            <ui:button label="Show Message" press="{!c.showApplicationMessage}" />
-            <c:ApplicationMessage aura:id="appMessage" >
-                <aura:set attribute="isShow" value="false"/>
-            </c:ApplicationMessage>
-        </c:VehiclePartDemo>
         
-        <c:VehiclePartDemo aura:id="demo5">
+        <c:VehiclePartDemo aura:id="demo4">
             <aura:set attribute="componentName" value="Graphviz Renderer"/>
             <aura:set attribute="focusId" value="graphviz"/>
             <aura:set attribute="learning">
@@ -108,7 +85,7 @@
             <c:VehicleRendererComp aura:id="vehicleRenderer" />
         </c:VehiclePartDemo>
 
-        <c:VehiclePartDemo aura:id="demo6">
+        <c:VehiclePartDemo aura:id="demo5">
             <aura:set attribute="componentName" value="Miller Column"/>
             <aura:set attribute="focusId" value="miller"/>
             <aura:set attribute="learning">
@@ -124,7 +101,7 @@
             <c:MillerColumn aura:id="millerDemo"/>
         </c:VehiclePartDemo>
 
-        <c:VehiclePartDemo aura:id="demo7">
+        <c:VehiclePartDemo aura:id="demo6">
             <aura:set attribute="componentName" value="Keyboard Catcher"/>
             <aura:set attribute="focusId" value="keys"/>
             <aura:set attribute="learning">
@@ -136,7 +113,7 @@
             <c:KeyboardCatcher aura:id="keys" keyEvent="{!c.handleKeyboardEvent}"/>
         </c:VehiclePartDemo>
 
-        <c:VehiclePartDemo aura:id="demo8">
+        <c:VehiclePartDemo aura:id="demo7">
             <aura:set attribute="componentName" value="Range Slider"/>
             <aura:set attribute="focusId" value="range-slider"/>
             <aura:set attribute="learning">
