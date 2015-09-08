@@ -1,0 +1,6 @@
+<aura:component isTemplate="true" extends="aura:template">
+    
+    <div id="qunit"></div>
+  	<div id="qunit-fixture"></div>
+    
+</aura:component>
