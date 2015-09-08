@@ -45,5 +45,34 @@
             svg.setAttribute('preserveaspectratio', 'xminymin meet');
             svg.setAttribute('width', "100%");
         }
+    },
+    
+    runUnitTests : function(component){
+        
+        // Prepare test data
+        var sampleSVG = 'digraph R {  rankdir=LR  node [style=rounded]  node1 [shape=box]  node2 [fillcolor=yellow, style="rounded,filled", shape=diamond]  node3 [shape=record, label="{ a | b | c }"] node1 -> node2 -> node3}';
+        component.set("v.graphvizContent", sampleSVG);
+        
+        // Do test
+        this.renderVehicleContent(component);
+        
+        // Assert test
+        QUnit.test( "Test VehicleRendererComp", function( assert ) {
+			var content = component.get("v.graphvizContent");
+			assert.equal( sampleSVG, content, "Passed!" );
+            
+            var container = document.getElementById("diagramContainer");
+			assert.notEqual( null, container.innerHTML, "Passed!" );
+            
+        	var svg = container.getElementsByTagName('svg')[0];
+			assert.notEqual( null, svg, "Passed!" );
+            
+            var svgPreserveAspectRatio = svg.getAttribute('preserveaspectratio');
+			assert.equal( 'xminymin meet', svgPreserveAspectRatio, "Passed!" );
+            
+            var svgWidth = svg.getAttribute('width');
+			assert.equal( '100%', svgWidth, "Passed!" );
+            
+        });
     }
 })

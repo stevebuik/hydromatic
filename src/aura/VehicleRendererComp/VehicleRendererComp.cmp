@@ -4,5 +4,7 @@
     
     <aura:handler name="change" value="{!v.graphvizContent}" action="{!c.onRenderGraphviz}" />
     
+    <aura:handler event="c:UnitTestEvent" action="{!c.runUnitTests}"/>
+    
     <div id="diagramContainer"></div>
 </aura:component>

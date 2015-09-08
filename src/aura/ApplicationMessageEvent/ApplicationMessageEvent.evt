@@ -1,7 +1,0 @@
-<aura:event type="APPLICATION" description="Event template">
-    <!--Severity Options: confirm, info, warning, error-->
-	<aura:attribute name="isShow" type="Boolean" default="false" />
-    <aura:attribute name="severity" type="String" default="error" />
-    <aura:attribute name="title" type="String" default="Message Title" />
-    <aura:attribute name="body" type="String" default="Message Body" />
-</aura:event>

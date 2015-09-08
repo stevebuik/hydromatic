@@ -21,7 +21,7 @@
         component.find("millerDemo").set("v.items", 
                                          [{id: "123", label: "Foo"},
                                           {id: "456", label: "Foobar"},
-                                          {id: "4567", label: "Barry"}]);                
+                                          {id: "4567", label: "Barry"}]);
 	},
     
     handleKeyboardEvent: function(component, event, helper) {             
